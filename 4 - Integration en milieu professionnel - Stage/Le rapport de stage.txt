@@ -1,0 +1,53 @@
+Le rapport de stage
+
+La langue ecrite = langue orale.
+
+La page de garde
+les logos (noms des établissements (formation et stage)
+le type de document (Rapport de stage)
+le sujet/thème (réalisation d'une gestion de stock)
+l'année de formation (2022/2023)
+
+le(s) réalisateurs (réalisé par : - -)
+le(s) encadrants (encadr par : - -)
+
+Le sommaire (sommaire dynamic + numéro de pages)
+Dédicace (Personnel)
+Remerciements (Professionnel)
+L'introduction (1 page)
+présentation de l'entreprise
+   - voir le site web de l'application ou demander  à votre encadran
+partie 1 : l'analyse
+   - Le besoin (le cahier des charges)
+   - Le back log (les user stories)
+   - Le diagramme PERT + Gantt
+   - Les diagrammes UML + Merise
+   - Diccionnaire de données
+   - Les sprint
+   - BurnDown , BurnUp.
+partie 2 : réasation
+   - les technologies utilisée  + benchmarking(comparatif) et argumentation
+   - mysql , mongodb, sqlserver, myisam - innodb 5.6 - 8.0
+   - les tests
+   - les points forts du code utilisé
+partie 3 : manuel d'utilisateur
+   - la maquette initiale
+   - diagramme de navigation
+   - les ecrans finaux 
+partie 4 : fiche technique pour l'administrateur
+   - l'environnement d'excution
+   - la méthode de déploiement
+Le conclusion (1 page) (sentiments personnel par rapport au stage, les gains et les problèmes rencontrés)
+La bibliographie
+les annexes.
+abréviations.
+
+
+
+
+note rapport écrit
+note présentation  orale
+note projet  technique
+entreprise  stage
+
+
