@@ -1,4 +1,4 @@
-use  location_202_25;
+
 
 insert into type values (1,'appartement'),(2,'villa'),(3,'garage'),(4,'maison'),(5,'duplex');
 insert into ville values (1,'tetouan'),(2,'martil'),(3,'m''diq'),(4,'tanger'),(5,'larache');
@@ -9,7 +9,7 @@ insert into client (id_client, nom_client, prenom_client,telephone,adresse) valu
                             (3,'youssef','youssef','03', 'av3'),
                             (4,'khalid','khalid','04','av4'),
                             (5,'amina','amina','05','av5');
-insert into bien values 
+insert into bien (reference, superficie,nb_pieces,loyer,id_client,id_type,id_quartier) values 
 					(1,80,3,1800,1,1,1),
                     (2,120,5,2500,1,2,3),
                     (3,50,2,1100,1,1,1),
@@ -28,3 +28,4 @@ insert into contrat values
                     (9,'2024-08-05','2024-08-05',null,150,1900,5,4),
                     (10,'2024-09-01','2024-09-01',null,150,2400,2,5);
                     
+
