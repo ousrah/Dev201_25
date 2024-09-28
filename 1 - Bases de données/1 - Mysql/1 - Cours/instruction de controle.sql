@@ -234,7 +234,34 @@ on souhaite ecrire une fonction qui reçoit tous les paramètres
 et qui affiche le montant de la participation selon 
 le prix de repas acheté par l'employé
 */
+drop function if exists participation_repas;
+delimiter $$
+create function participation_repas(salaire int,marie varchar(1),enfant int, prix float)
+	returns float
+    deterministic
+begin
+     declare taux float default 0.2;
+	 if salaire<2500 then 
+		set taux=taux+0.15;
+     end if;
+     if marie='o' then 
+		set taux=taux+0.05;
+     end if;
+  	 set taux=taux+(enfant*0.1);
+     if taux>0.6 then 
+		set taux = 0.6;
+     end if;
+     return prix*taux;
+end $$
+delimiter ;
 
+select participation_repas(3000,'o',0,100)
+
+     
+     
+     
+     
+     
 
 
 
