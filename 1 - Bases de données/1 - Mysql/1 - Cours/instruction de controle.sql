@@ -609,7 +609,77 @@ delimiter ;
 select somme(0);
 
 
-# ecrire un fonction qui calcule la somme des n premier entiers paires en utilisant les trois formes de boucles mysql while, repeat et loop
+# ecrire un fonction qui calcule la somme des n premier entiers 
+# paires en utilisant les trois formes de boucles mysql while, repeat et loop
+drop function if exists somme1;
+delimiter // 
+create function somme1(n  int ) 
+	returns int 
+    deterministic 
+
+begin 
+	declare s int default 0 ; 
+    declare i int default 1 ;
+    while i <= n do 
+		if i%2 = 0 then 
+			set s = s + i ;
+		end if ; 
+        set i = i + 1 ; 
+		end while ;
+        return s ; 
+end //
+
+delimiter ; 
+
+select somme1(4);
+
+
+drop function if exists somme1;
+delimiter // 
+create function somme1(n  int ) 
+	returns int 
+    deterministic 
+
+begin 
+	declare s int default 0 ; 
+    declare i int default 1 ;
+    repeat 
+		if i%2 = 0 then 
+			set s = s + i ;
+		end if ; 
+        set i = i + 1 ; 
+		until i>n end repeat;
+        return s ; 
+end //
+
+delimiter ; 
+select somme1(1);
+drop function if exists somme1;
+delimiter // 
+create function somme1(n int ) 
+	returns int 
+    deterministic 
+
+begin 
+	declare s int default 0 ;  
+    declare i int default 1 ; 
+    l:loop
+		if i%2 = 0 then 
+			set s = s + i ;
+		end if ; 
+        set i = i + 1 ; 
+        if i>n then
+			leave l;
+        end if;
+	end loop;
+    return s ; 
+end //
+
+delimiter ; 
+select somme1(0);
+
+
+
 
 # ecrire une fonction qui calcule le factorie d'un entier positif
 /*rappel 5! = 5x4x3x2
