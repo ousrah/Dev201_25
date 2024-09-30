@@ -659,7 +659,6 @@ delimiter //
 create function somme1(n int ) 
 	returns int 
     deterministic 
-
 begin 
 	declare s int default 0 ;  
     declare i int default 1 ; 
@@ -687,7 +686,34 @@ select somme1(0);
         1! = 1
         0! = 1*/
 
+
+
+# les variables globales
+select 3 into @c;
+select @c;
+
+
+select dotation into @d from session where id_session=1;
+select @d;
+
 #les fonctions
+
+drop function if exists getDotation;
+delimiter $$
+create function getDotation(id int)
+	returns float
+	reads sql data
+begin
+	declare d float;
+	select dotation into d from session where id_session = id;
+    return d;
+end $$
+delimiter ;
+
+select getDotation(1);
+
+
+
 
 
 #les procedures stockées
