@@ -255,7 +255,7 @@ begin
 end $$
 delimiter ;
 
-select participation_repas(3000,'o',0,100)
+select participation_repas(3000,'o',0,100);
 
      
      
@@ -279,6 +279,44 @@ si A = 0 et B = 0  x = R
 si A = 0 et B <> 0 x = impossible
 si A <>  0 x = -b/a
 */
+use courses201;
+drop function if exists equation;
+delimiter $$
+create function equation(a int,b int)
+	returns varchar(45)
+    deterministic
+begin
+	if a = 0 and b = 0 then
+		return "R";
+	elseif a = 0 and b <> 0 then
+		return "Impossible";
+	else
+		return concat('x=',-b/a);
+	end if;
+end $$
+delimiter ;
+select equation(2,0);
+
+
+drop function if exists equation;
+delimiter $$
+create function equation(a int,b int)
+	returns varchar(45)
+    deterministic
+begin
+	if a = 0  then
+		if b = 0 then
+			return "R";
+		else
+			return "Impossible";
+		end if;
+	else
+		return concat('x=',-b/a);
+	end if;
+end $$
+delimiter ;
+select equation(1,0);
+
 
 
 #exercice 4
@@ -299,10 +337,285 @@ si A <> 0
     */
 
 
+drop function if exists equation1;
+delimiter $$
+create function equation1(a int,b int,c int)
+returns varchar(255)
+deterministic
+begin
+    declare d float ;
+	if a=0 and b=0 and c=0 then
+		   return "x1=x2=R";
+	end if;
+	if a=0 and b=0 and c<>0 then
+           return "Impossible";
+	end if;
+	if a=0 and b<>0 then
+		   return -c/b;
+	end if;
+    if a<>0  then
+        select b*b-4*a*c into d;
+		if d<0 then
+           return "impossible";
+		else if d=0 then
+           return -b/2*a;
+		else
+           return concat("x1=" ,(-b-sqrt(d))/2*a ,",x2=", (-b+sqrt(d))/2*a);
+		end if;
+        end if;
+	end if;
+
+end $$
+delimiter ;
+select equation1(0,0,0);
+select equation1(0,0,1);
+select equation1(0,1,2);
+select equation1(2,3,1);
+select equation1(3,2,1);
+select equation1(4,4,1);
+
+
+
+drop function if exists equation1;
+delimiter $$
+create function equation1(a int,b int,c int)
+returns varchar(255)
+deterministic
+begin
+    declare d float ;
+	if a=0 then
+		if b=0 then
+			if c=0 then
+				return "x1=x2=R";
+			else
+	           return "Impossible";
+			end if;
+		else
+		   return -c/b;
+		end if;
+    else
+        select b*b-4*a*c into d;
+		if d<0 then
+           return "impossible dans R";
+		elseif d=0 then
+           return concat ("x1=x2=",-b/2*a);
+		else
+           return concat("x1=" ,(-b-sqrt(d))/2*a ,",x2=", (-b+sqrt(d))/2*a);
+		end if;
+	end if;
+
+end $$
+delimiter ;
+select equation1(0,0,0);
+select equation1(0,0,1);
+select equation1(0,1,2);
+select equation1(2,3,1);
+select equation1(3,2,1);
+select equation1(4,4,1);
+
+
+/*
+exercice 
+on souhaite ecrire une fonction qui reçoit le numéro d'une journée et qui affiche son nom en arabe
+*/
+
+drop function if exists numJournee;
+delimiter $$
+create function numJournee(num int)
+	returns varchar(50)
+	deterministic
+begin
+	if num = 1 then
+		return 'الأحد';
+    elseif num = 2 then
+		return 'الإثنين';
+    elseif num = 3 then
+		return 'الثلاثاء';
+    elseif num = 4 then
+		return 'الأربعاء';
+    elseif num = 5 then
+		return 'الخميس';
+    elseif num = 6 then
+		return 'الجمعة';
+    elseif num = 7 then
+		return 'السبت';
+	end if;
+end $$
+delimiter ;
+
+
+
+
+drop function if exists numJournee;
+delimiter $$
+create function numJournee(num int)
+	returns varchar(50)
+	deterministic
+begin
+	declare jour varchar(50);
+	set jour = case 
+		when num = 1 then 		 'الأحد'
+		when num = 2 then		 'الإثنين'
+		when num = 3 then		 'الثلاثاء'
+		when num = 4 then		 'الأربعاء'
+		when num = 5 then		 'الخميس'
+		when num = 6 then		 'الخميس'
+		when num = 7 then		 'السبت'
+		else					 'Erreur'
+	end  ;
+    return jour;
+end $$
+delimiter ;
+
+
+
+
+
+drop function if exists numJournee;
+delimiter $$
+create function numJournee(num int)
+	returns varchar(50)
+	deterministic
+begin
+	declare jour varchar(50);
+	set jour = case num
+		when 1 then 	 'الأحد'
+		when 2 then		 'الإثنين'
+		when 3 then		 'الثلاثاء'
+		when 4 then		 'الأربعاء'
+		when 5 then		 'الخميس'
+		when 6 then		 'الخميس'
+        when 7 then		 'السبت'
+		else			 'Erreur'
+	end  ;
+    return jour;
+end $$
+delimiter ;
+
+
+
+select numJournee(10);
+
+
+
+
+# utilisation de case dans la resolution de l'equation deuxième degrès.
+
+drop function if exists equation1;
+delimiter $$
+create function equation1(a int,b int,c int)
+returns varchar(255)
+deterministic
+begin
+    declare d float ;
+    declare r varchar(50);
+	if a=0 then
+		if b=0 then
+			if c=0 then
+				set r =  "x1=x2=R";
+			else
+	           set r =   "Impossible";
+			end if;
+		else
+		   set r =   -c/b;
+		end if;
+    else
+        select b*b-4*a*c into d;
+        set r = case 
+		when d<0 then
+             "impossible dans R"
+		when d=0 then
+           concat ("x1=x2=",-b/2*a)
+		else
+            concat("x1=" ,(-b-sqrt(d))/2*a ,",x2=", (-b+sqrt(d))/2*a)
+		end ;
+	end if;
+	return r;
+end $$
+delimiter ;
+select equation1(0,0,0);
+select equation1(0,0,1);
+select equation1(0,1,2);
+select equation1(2,3,1);
+select equation1(3,2,1);
+select equation1(4,4,1);
+
 # les boucles
+#ecrire une fonction qui calcule la somme des n premier entier
 
 
+# avec la boucle while
+drop function if exists somme;
+delimiter $$
+create function somme (n int)
+	returns bigint
+    deterministic
+begin
+	declare s bigint default 0;
+	declare i int default 1;
+    while i<=n do
+		set s = s + i;
+        set i = i+1;
+    end while;
+	return s;
+end $$
+delimiter ;
 
+select somme(3);
+
+
+#avec la boucle repeat
+drop function if exists somme;
+delimiter $$
+create function somme(n int)
+	returns bigint
+    deterministic
+begin
+	declare s bigint default 0;
+    declare i int default 0;
+    repeat
+		set s = s + i;
+        set i = i + 1;
+	until i>n end repeat;
+	return s;
+end $$
+delimiter ;
+
+select somme(3);
+
+
+# avec la boucle loop
+
+
+drop function if exists somme;
+delimiter $$
+create function somme(n int)
+	returns bigint
+    deterministic
+begin
+	declare s bigint default 0;
+    declare i int default 0;
+	b1: loop
+			set s = s + i;
+			set i = i + 1;
+			if i>n then
+				leave b1;
+			end if;
+		end loop;
+	return s;
+end $$
+delimiter ;
+
+select somme(0);
+
+
+# ecrire un fonction qui calcule la somme des n premier entiers paires en utilisant les trois formes de boucles mysql while, repeat et loop
+
+# ecrire une fonction qui calcule le factorie d'un entier positif
+/*rappel 5! = 5x4x3x2
+		4! = 4x3x2
+        1! = 1
+        0! = 1*/
 
 #les fonctions
 
