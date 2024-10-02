@@ -680,11 +680,37 @@ select somme1(0);
 
 
 
-# ecrire une fonction qui calcule le factorie d'un entier positif
+# ecrire une fonction qui calcule le factoriel d'un entier positif
 /*rappel 5! = 5x4x3x2
 		4! = 4x3x2
         1! = 1
         0! = 1*/
+use courses201;
+drop function if exists facto;
+delimiter &&
+create function facto(n int)
+	returns double 
+    deterministic
+begin 
+	declare s double default 1;
+    declare i int default 2;
+    while i<=n do
+		set s=s*i;
+        set i=i+1;
+	end while;
+    return s;
+end &&
+delimiter ;
+
+select facto(0);
+select facto(1);
+select facto(4);
+select facto(5);
+select facto(170);
+
+
+
+
 
 
 
