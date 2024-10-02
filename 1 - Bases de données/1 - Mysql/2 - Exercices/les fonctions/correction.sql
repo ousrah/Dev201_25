@@ -108,7 +108,8 @@ drop database if exists vols_201;
 create database vols_201 collate utf8mb4_general_ci;
 use vols_201;
 
-create table Pilote(numpilote int auto_increment primary key,
+create table Pilote(
+numpilote int auto_increment primary key,
 nom varchar(50) ,
 titre varchar(50) ,
 villepilote varchar(50) ,
@@ -163,13 +164,99 @@ insert into vol values (7,'tetouan','casablanca','2023-09-10','2023-09-12',1,1),
 #1.	Ecrire une fonction qui retourne le nombre de pilotes ayant effectué un 
 #nombre de vols supérieur à un nombre donné comme paramètre ;
 
+use vols_201;
+
+drop function if exists nbrPilote;
+
+delimiter $$
+create function nbrPilote(nbrVol int)
+	returns int
+    deterministic
+begin
+	declare nombre_pilote int;
+    select count(distinct numpilote) 
+    into nombre_pilote 
+    from Pilote join Vol on Vol.numpil = Pilote.numpilote
+    group by numpilote
+    having count(numvol) > nbrVol;
+    return nombre_pilote;
+end $$
+delimiter ;
+
+select nbrPilote(3);
 
 
+
+
+
+select count(*) from (select numpil, count(*)   from vol
+group by numpil
+having count(*)>2)f ;
+
+
+
+with f as (select numpil, count(*)   from vol
+group by numpil
+having count(*)>2)
+select count(*) from f ;
+
+
+
+drop function if exists E3Q1;
+delimiter $$
+create function E3Q1(n int)
+returns int
+reads sql data
+begin
+	declare r int;
+	
+    with f as (select numpil, count(*)   from vol
+	group by numpil
+	having count(*)>n)
+    
+	select count(*) into r from f ;
+	
+    return r;
+end $$
+delimiter ;
+
+select E3Q1(4);
+
+
+select * from vol;
 
 #2.	Ecrire une fonction qui retourne la durée de travail d’un pilote dont
 #l’identifiant est passé comme paramètre ;
-
+drop function if exists E3Q2;
+delimiter //
+create function E3Q2(nmpilo int)
+returns int
+reads sql data
+begin
+	declare duree int;
+	select timestampdiff(YEAR, datedebut , CURRENT_DATE()) into duree
+	from pilote
+	where numpilote = nmpilo;
+	return duree;
+end //
+delimiter ;
+select E3Q2(3);
 #3.	Ecrire une fonction qui renvoie le nombre des avions qui ne sont pas affectés à des vols ;
+drop function if exists e3q3;
+
+delimiter $$
+create function e3q3()
+	returns int
+	reads sql data
+begin
+	declare con int ;
+    -- select  count(*) from avion left join vol using (numav) where numvol is null;
+	select count(*) into con from avion where numav not in (select numav from vol);
+	return con;
+end $$
+delimiter ;
+select e3q3();
+
 
 #4.	Ecrire une fonction qui retourne le numero du plus ancien pilote qui 
 #a piloté l’avion dont le numero est passé en paramètre ;
