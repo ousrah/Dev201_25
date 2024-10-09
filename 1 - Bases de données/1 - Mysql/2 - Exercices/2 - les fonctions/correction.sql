@@ -259,12 +259,39 @@ select e3q3();
 
 
 #4.	Ecrire une fonction qui retourne le numero du plus ancien pilote qui 
-#a piloté l’avion dont le numero est passé en paramètre ;
+# a piloté l’avion dont le numero est passé en paramètre ;
+use vols_201;
+select p.numpilote
+from pilote p join vol v on p.numpilote=v.numpil
+where numav=1
+order by datedebut asc
+limit 1;
+
+
+drop function if exists E3Q4;
+delimiter $$
+create function E3Q4(av int)
+	returns int 
+    reads sql data
+begin
+	declare d int;
+	with t1 as (select distinct  numpilote, datedebut , numav
+				from vol v join pilote p on v.numpil = p.numpilote 
+				where numav = av
+				order by datedebut asc),
+	t2 as (select min(datedebut) as datedebut from t1)
+	select numpilote into d from t1 join t2 using(datedebut) limit 1;
+	return d;
+end $$
+delimiter ;
+
+select E3Q4(1);
 
 
 #5.	Ecrire une fonction table qui retourne le nombre des pilotes dont le salaire
 # est inférieur à une valeur passée comme paramètre ;
 
+my sql ne permet de retourner une table dans une fonction.
 
 /*Exercice 4:
 Considérant la base de données suivante :
@@ -272,18 +299,207 @@ DEPARTEMENT (ID_DEP, NOM_DEP, Ville)
 EMPLOYE (ID_EMP, NOM_EMP, PRENOM_EMP, DATE_NAIS_EMP, SALAIRE,#ID_DEP)
 */
 
+
+
+drop database if exists employes_201;
+
+create database employes_201 COLLATE "utf8mb4_general_ci";
+use employes_201;
+
+
+create table DEPARTEMENT (
+ID_DEP int auto_increment primary key, 
+NOM_DEP varchar(50), 
+Ville varchar(50));
+
+create table EMPLOYE (
+ID_EMP int auto_increment primary key, 
+NOM_EMP varchar(50), 
+PRENOM_EMP varchar(50), 
+DATE_NAIS_EMP date, 
+SALAIRE float,
+ID_DEP int ,
+constraint fkEmployeDepartement foreign key (ID_DEP) references DEPARTEMENT(ID_DEP));
+
+insert into DEPARTEMENT (nom_dep, ville) values 
+		('FINANCIER','Tanger'),
+		('Informatique','Tétouan'),
+		('Marketing','Martil'),
+		('GRH','Mdiq');
+
+insert into EMPLOYE (NOM_EMP , PRENOM_EMP , DATE_NAIS_EMP , SALAIRE ,ID_DEP ) values 
+('said','said','1990/1/1',8000,1),
+('hassan','hassan','1990/1/1',8500,1),
+('khalid','khalid','1990/1/1',7000,2),
+('souad','souad','1990/1/1',6500,2),
+('Farida','Farida','1990/1/1',5000,3),
+('Amal','Amal','1990/1/1',6000,4),
+('Mohamed','Mohamed','1990/1/1',7000,4);
+
+
+
 #1.	Créer une fonction qui retourne le nombre d’employés
+
+drop function if exists E4Q1;
+delimiter $$
+create function E4Q1()
+	returns int 
+    reads sql data
+begin
+	declare d int;
+	select count(*) into d from employe;
+	return d;
+end $$
+delimiter ;
+
+select E4Q1();
+
+
 #2.	Créer une fonction qui retourne la somme des salaires de tous les employés
+
+drop function if exists E4Q2;
+delimiter $$
+create function E4Q2()
+	returns double 
+    reads sql data
+begin
+	declare d double;
+	select sum(salaire) into d from employe;
+	return d;
+end $$
+delimiter ;
+select E4Q2();
+
 #3.	Créer une fonction pour retourner le salaire minimum de tous les employés
+
+drop function if exists E4Q3;
+delimiter $$
+create function E4Q3()
+	returns double 
+    reads sql data
+begin
+	declare d double;
+	select min(salaire) into d from employe;
+	return d;
+end $$
+delimiter ;
+select E4Q3();
 #4.	Créer une fonction pour retourner le salaire maximum de tous les employés
-#5.	En utilisant les fonctions créées précédemment, Créer une requête pour afficher le nombre des employés, la somme des salaires, le salaire minimum et le salaire maximum
+
+drop function if exists E4Q4;
+delimiter $$
+create function E4Q4()
+	returns double 
+    reads sql data
+begin
+	declare d double;
+	select max(salaire) into d from employe;
+	return d;
+end $$
+delimiter ;
+select E4Q4();
+
+#5.	En utilisant les fonctions créées précédemment, Créer une requête pour afficher
+# le nombre des employés, la somme des salaires, le salaire minimum et le salaire maximum
+
+
+select E4Q1() as nombres_employes,
+E4Q2() as Sommes_Salaires,
+E4Q3() as MinSalaire,
+E4Q4() as MaxSalaire;
+
 #6.	Créer une fonction pour retourner le nombre d’employés d’un département donné.
+drop function if exists E4Q6;
+delimiter $$
+create function E4Q6(id_d int)
+	returns int 
+    reads sql data
+begin
+	declare d int;
+	select count(*) into d from employe
+    where id_dep=id_d;
+	return d;
+end $$
+delimiter ;
+select E4Q6(2);
+
+
+
 #7.	Créer une fonction la somme des salaires des employés d’un département donné
+
+
+drop function if exists E4Q7;
+delimiter $$
+create function E4Q7(id_d int)
+	returns double 
+    reads sql data
+begin
+	declare d double;
+	select sum(salaire) into d from employe
+    where id_dep=id_d;
+	return d;
+end $$
+delimiter ;
+select E4Q7(2);
+
 #8.	Créer une fonction pour retourner le salaire minimum des employés d’un département donné
+
+drop function if exists E4Q8;
+delimiter $$
+create function E4Q8(id_d int)
+	returns double 
+    reads sql data
+begin
+	declare d double;
+	select min(salaire) into d from employe
+    where id_dep=id_d;
+	return d;
+end $$
+delimiter ;
+select E4Q8(2);
+
 #9.	Créer une fonction pour retourner le salaire maximum des employés d’un département.
-#10.	En utilisant les fonctions créées précédemment, Créer une requête pour afficher pour les éléments suivants : 
-#a.	Le nom de département en majuscule. 
-#b.	La somme des salaires du département
-#c.	Le salaire minimum
-#d.	Le salaire maximum
+
+
+drop function if exists E4Q9;
+delimiter $$
+create function E4Q9(id_d int)
+	returns double 
+    reads sql data
+begin
+	declare d double;
+	select max(salaire) into d from employe
+    where id_dep=id_d;
+	return d;
+end $$
+delimiter ;
+select E4Q9(2);
+
+#10.	En utilisant les fonctions créées précédemment, Créer une requête pour afficher  les éléments suivants : 
+	#a.	Le nom de département en majuscule.
+	#b. le nombre de salairé du département 
+	#c.	La somme des salaires du département
+	#d.	Le salaire minimum du département
+	#e.	Le salaire maximum du département
+
+select ucase(nom_dep) as nomDepartement, 
+	E4Q6(id_dep) as nbEmployes ,
+    E4Q7(id_dep) as sommeSalaires ,
+    E4Q8(id_dep) as SalaireMin ,
+    E4Q9(id_dep) as SalaireMax 
+    from departement;
+
+
+
+
 #11.	Créer une fonction qui accepte comme paramètres 2 chaines de caractères et elle retourne les deux chaines en majuscules concaténé avec un espace entre eux.
+drop function if exists E4Q11;
+delimiter $$
+create function E4Q11(str1 varchar(100), str2 varchar(100))
+returns varchar (201)
+deterministic
+begin
+return upper(concat(str1, ' ',str2));
+end $$
+delimiter ;
+select E4Q11("hamza","majid");
