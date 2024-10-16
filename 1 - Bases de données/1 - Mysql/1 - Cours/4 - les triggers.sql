@@ -59,8 +59,19 @@ delimiter ;
 delete from vente where id_vente = 1;
 
 
--- declenchyeur de mofidification
+-- declencheur de mofidification
+
+drop trigger if exists update_vente;
+delimiter $$
+create trigger update_vente after update on vente for each row
+begin
+	update produit set stock = stock + old.qte - new.qte where id_produit = old.id_produit;
+ end $$
+delimiter ;
+
 
 
 select * from vente;
 select * from produit;
+
+update vente set qte = 30 where id_vente = 4;
