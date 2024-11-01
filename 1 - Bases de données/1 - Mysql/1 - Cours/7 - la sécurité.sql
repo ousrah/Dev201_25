@@ -36,3 +36,67 @@ grant update(villed, villea) on vols_201.vol  to 'yousra'@'localhost';
 #modifier le mot de passe de l'utilisatrice yousra
 set password for 'yousra'@'localhost' = "abcdefg";
 
+
+
+#creation de plusieurs utilisateurs
+drop user if exists u1@'localhost';
+drop user if exists u2@'localhost';
+drop user if exists u3@'localhost';
+drop user if exists u4@'localhost';
+drop user if exists u5@'localhost';
+
+create user u1@'localhost' identified by '123456';
+create user u2@'localhost' identified by '123456';
+create user u3@'localhost' identified by '123456';
+create user u4@'localhost' identified by '123456';
+create user u5@'localhost' identified by '123456';
+
+#creation de deux roles
+drop role if exists etudiants@localhost;
+drop role if exists profs@localhost;
+
+create role etudiants@localhost;
+create role profs@localhost;
+
+
+#donner les droits aux roles
+grant all privileges on vols_201.pilote to etudiants@localhost;
+grant  select on vols_201.vol to etudiants@localhost;
+
+grant all privileges on vols_201.* to profs@localhost;
+
+#affecter les roles a plusieurs utilisateurs
+grant etudiants@localhost to u1@localhost;
+grant etudiants@localhost to u2@localhost;
+grant etudiants@localhost to u3@localhost;
+grant etudiants@localhost to u4@localhost;
+grant etudiants@localhost to u5@localhost;
+
+
+#appliquer les roles
+set default role all to u1@localhost;
+set default role all to u2@localhost;
+set default role all to u3@localhost;
+set default role all to u4@localhost;
+set default role all to u5@localhost;
+
+#ajouter d'autres priviles a un role
+grant select on vols_201.avion to etudiants@localhost;
+
+
+#ajouter d'autres roles a certains utilisateurs
+grant profs@localhost to u4@localhost;
+grant profs@localhost to u5@localhost;
+
+#afficher les privileges d'un utilisateur
+show grants for u4@localhost;
+
+#enelver les roles de certains utilisateurs
+revoke etudiants@localhost from u4@localhost;
+revoke etudiants@localhost from u5@localhost;
+
+#afficher les privileges d'un utilisateur
+show grants for u4@localhost;
+
+#rafraichir les privileges sur le serveur pour l'utilisateur en cours
+flush privileges;
