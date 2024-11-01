@@ -34,6 +34,19 @@ select * from volsOfTanger;
 
 #le backup (la sauvegarde)
 
+#pour utiliser mysqldump il faut soit entrer dans le dossier  C:\Program Files\MySQL\MySQL Server x.x\bin
+# ou ajouter C:\Program Files\MySQL\MySQL Server x.x\bin a path systeme dans les variables d'environnement
+#tapez mysqldump en ligne de commande pour tester s'il existe.
+
+
+#utilise le post locale et le port 3306
+mysqldump -u root -p cuisine_202 > cuisine_202.sql
+
+#ici on a précisé le host avec -h et le port avec -P (maj)
+mysqldump -h 127.0.0.1 -P 3306 -u root -p cuisine_202 > cuisine_202B.sql
+
+#ici on a fourni aussi le mot de passe il doit être collé a -p (min)
+mysqldump -h 127.0.0.1 -P 3306 -u root -p123456 cuisine_202 > cuisine_202B.sql
 
 
 
