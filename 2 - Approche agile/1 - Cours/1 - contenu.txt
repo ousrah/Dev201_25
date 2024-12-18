@@ -1,0 +1,16 @@
+Approche Agile 100h 75 Présentiel 25 a distance
+
+Généralités sur la gestion projet classique et agile
+Définitions
+
+MSProject -> project Classique
+Atlasian JIRA -> project Agile
+
+Git + GitHub  + GitLab
+
+Docker 
+
+Sonarcube -> la qualité du logiciel
+
+Integration continue CI / Déploiement Continu CD
+
