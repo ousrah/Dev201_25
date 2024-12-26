@@ -1,0 +1,17 @@
+composer 3 équipes
+
+
+- chaque équipe choisi son nom
+- chaque équipe se met d'accord sur un projet
+- pour chaque projet il faut créer entre 15 et 20 "user stories"
+- estimer la valeur de chaque US
+- estimer la taille de chaque US (utilisez la méthode pocker planning  XS-S-M-L-XL)
+- créer votre product backlog en utilisant les post-it
+- organisez vos US par taille/valeur
+- initialisez votre burn-down et mettez le a jour chaque jour
+
+
+
+
+
+
