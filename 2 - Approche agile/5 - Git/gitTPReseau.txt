@@ -1,0 +1,38 @@
+- créez un compte sur GitLab
+- Configurer votre clé ssh
+- créez un seul répository du projet et trois développeurs doivent le clonner sur leurs propres pc
+
+Suivez le projet avec ungit
+
+chaque tache consiste a créer un fichier qui s'appel t?.html et ajouter qlq ligne dedans
+
+avant chaque tache faire pull
+apres chaque tache faire push
+
+ne commencer la journée que lorsque toute votre équipe termine de pusher les tache des la journée précedente
+
+jour1
+dev1 - t1 et t2
+dev2  - t3 - t4
+dev3 - t5 - t6
+
+
+jour2  dans ce jours commencez par la deuxième tâche et ne la comitez pas, gardez la en stash et passer à la première tache
+dev1 t7 - t8
+dev2 t4 - t5
+dev3 t8 - t9
+
+jour3
+dev1 t7 - t8
+dev2 t4 - t5
+dev3 t8 - t9
+
+jour4
+dev1  branche1 - t10 - t11 - merge
+dev2  branche2 - t12 - t13 - merge
+dev3  branche3 - t14 - t15 - merge
+push
+
+
+cheque développeur crée une issue qu'il attribue à un autre développeur, le développeur concerné doit réglé le problème et faire passé l'issue de open à close
+
