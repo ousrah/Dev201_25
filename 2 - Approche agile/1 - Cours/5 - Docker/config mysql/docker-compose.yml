@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  db:
+    image: mysql:9.2.0
+    container_name: db
+    ports:
+      - 3309:3306
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./data:/var/lib/mysql
+
