@@ -5,9 +5,12 @@ services:
     container_name: db
     ports:
       - 3309:3306
+      - 33090:33060
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+
     volumes:
-      - ./data:/var/lib/mysql
+      - d:\data201:/var/lib/mysql
+      - d:\mysqlconf:/etc/mysql/conf.d
 
