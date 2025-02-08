@@ -1,0 +1,21 @@
+# pour entrer dans un conteneur
+docker exec -it app  bash
+
+# pour préparer une image avec Dockerfile avant le déploiement
+docker compose build app 
+
+#pour lancer docker-compose.yml
+docker compose up
+
+#pour lancer docker-compose.yml et Builder en meme temps
+docker compose up --build -d
+
+#pour lancer docker-compose en tant que service
+docker compose up -d
+
+#pour afficher la liste des conteneurs lancés
+docker ps
+
+#pour arreter les conteneur lancés
+docker compose down
+

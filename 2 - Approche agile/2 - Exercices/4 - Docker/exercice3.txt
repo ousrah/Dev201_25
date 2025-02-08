@@ -1,0 +1,16 @@
+Créer un docker compose qui permet de lancer un environnement de développement avec 
+les composants suivants :
+ - MongoDB port 27017
+ - apache2 port 8000
+ - php8.1-fpm
+
+-assurer vous que xamp, WampServer ou tout autre serveur web sont arrêtés sur votre pc
+- assuez vous que le service MongoDB est arreté sur votre pc
+
+-connecter vous avec mongo compass sur une base de données (commerce) sur votre conteneur MongoDB
+-créer une collection (produits) et ajouter 5 enregistrements
+
+créez une page web index.php qui se connect sur votre conteneur et qui affiche la liste des produits
+
+connectez vous sur votre page avec l'adresse http://localhost:8000
+

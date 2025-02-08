@@ -1,0 +1,11 @@
+- installer WSL2
+- installer docker desktop
+- créer un conteneur MySQL en utilisant l'interface graphique de docker desktop, 
+testez le avec MySQL workbensh et supprimez le.
+
+- créer un conteneur MySQL en utilisant la ligne de commande docker, 
+testez le avec MySQL workbensh et supprimez le.
+
+créer un conteneur MySQL en utilisant docker compose, 
+testez le avec MySQL workbensh et supprimez le.
+

@@ -1,0 +1,3 @@
+faite une recherche (web et IA) pour l'installation et l'utilisation
+ de sonarqube sur docker pour mesurer la qualité du code 
+ du projets products fournis par le formateur

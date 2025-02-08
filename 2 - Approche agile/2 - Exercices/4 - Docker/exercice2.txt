@@ -1,0 +1,1 @@
+Ajoutez a ce docker-compose.yml un conteneur qui permet de lancer phpMyAdmin sur le port 8080

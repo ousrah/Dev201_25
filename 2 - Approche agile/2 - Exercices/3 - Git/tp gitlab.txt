@@ -1,0 +1,6 @@
+créer un compte sur gitlab
+paramétrez votre clé ssl
+créez un repo publique sur gitlab
+clonnez ce repo sur votre post
+essayez de créez un dossier vide sur votre pc et de le liez avec votre repo
+faire des manipulation de modification en simulatnée sur les deux dossiers pour créer des conflits

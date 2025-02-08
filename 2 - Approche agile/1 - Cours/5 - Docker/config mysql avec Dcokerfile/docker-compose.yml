@@ -1,0 +1,20 @@
+#version: "3.7"
+services:
+  mysql8:
+    build:
+      args:
+        user: appuser
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: mysql:8.4
+    container_name: mysql8
+    ports:
+      - 3309:3306
+      - 33090:33060
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - d:\mysql8Data:/var/lib/mysql
+

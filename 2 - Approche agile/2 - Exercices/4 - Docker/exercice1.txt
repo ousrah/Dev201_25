@@ -1,0 +1,6 @@
+utilisez le projet (products.zip) et les fichiers docker 
+(docker-compose.yml, Dockerfile, et dossiers de configuration)
+ fournis par le formateur pour lancer et executer un environnement 
+ de développement (MySQL, php, enginx)
+testez votre application sur le port http://localhost:8000
+régler les problèms (si existes)
