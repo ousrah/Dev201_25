@@ -1,0 +1,29 @@
+services:
+ 
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - 3309:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - d:\mysqldata:/var/lib/mysql
+    networks:
+      - app-network
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      environment:
+        PMA_HOST: db
+      ports:
+          - "8080:80"
+      restart: always
+      volumes:
+          - ./php/local.ini:/usr/local/etc/php/php.ini
+      networks:
+        - app-network    
+ 
+networks:
+  app-network:
+    driver: bridge

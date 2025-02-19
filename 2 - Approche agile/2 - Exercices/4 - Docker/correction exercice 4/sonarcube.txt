@@ -1,0 +1,23 @@
+
+lancer docker compose pour les images sonarqube et postgres
+
+installer sonar scanner   :  npm install -g sonarqube-scanner@3.0.1
+creer le projet test1
+
+
+copier la commande : sonar-scanner -D"sonar.projectKey=test1" -D"sonar.sources=." -D"sonar.host.url=http://127.0.0.1:9091" -D"sonar.login=609d387ac47ea69b6fbd2ba473133da02ed9fa8d"
+executez là dans un projet existant
+
+
+exclure des dossiers
+
+sonar-scanner -D"sonar.projectKey=test2" -D"sonar.sources=." -D"sonar.host.url=http://127.0.0.1:9091" -D"sonar.login=c7457debc063feb2eb48b3b1cc883c50936f6268" -D"sonar.exclusions=assets/**"
+
+pour plus de parametres ajouter le fichier 
+sonar-project.properties
+
+
+
+
+
+regardez votre analyse
