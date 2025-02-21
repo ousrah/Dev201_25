@@ -12,7 +12,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer require mongodb/mongodb
 
 # Copier le fichier de configuration PHP
-COPY ./docker-compose/php/conf.d/custom.ini /usr/local/etc/php/conf.d/custom.ini
+#COPY ./docker-compose/php/conf.d/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
 # Activer les modules Apache nécessaires
 RUN a2enmod rewrite

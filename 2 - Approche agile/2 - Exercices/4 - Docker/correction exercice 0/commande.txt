@@ -1,1 +1,1 @@
-docker run --name mysql920 -p 3309:3306 -v d:\mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:9.2.0  
+docker run --name mysql920 -p 3309:3306 -v d:\mysqldata9:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:9.2  
