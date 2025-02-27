@@ -1,0 +1,22 @@
+php --version
+composer --version
+MySQL --version
+
+composer global require laravel/installer
+
+
+laravel new myProject
+
+
+cd myProject
+
+corriger .env en cas de besoin
+
+migrer la base de données avec php artisan migrate
+
+lancer le serveur avec php artisan serve
+
+composer create-project laravel/laravel project3
+
+
+composer create-project laravel/laravel project5 11.*
