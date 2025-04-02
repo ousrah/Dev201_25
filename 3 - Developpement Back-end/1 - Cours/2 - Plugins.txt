@@ -1,0 +1,35 @@
+Php all in one or php intelephense
+PHP Namespace Resolver
+Material Icon Theme
+
+
+laravel extra intellisens
+auto rename tag
+highlight Matching tag
+
+laravel goto view
+laravel goto components
+
+
+laravel blade snippets
+laravel blade formatter
+Laravel Blade Wrapper
+
+pretitier code formatter
+
+IntelliSense for CSS class names in HTML
+Tailwind CSS IntelliSense
+EditorConfig for VS Code
+Laravel Artisan
+Laravel Snippets
+
+
+Settings
+------------
+editor:format on save
+editor:linked Editing
+
+
+
+
+
