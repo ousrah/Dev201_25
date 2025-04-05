@@ -1,0 +1,16 @@
+
+
+
+Les sujet des exposés (WordPress)
+
+
+
+1 - Comparatif (Benchmarking) des CMS Actuels
+2 - Installation de Word press et environnement d'execution
+3 - Installation et modification des thèmes sur Word press, exemples des thèmes célèbres
+4 - Ajout et configuration des Plugins sur wordpress,  exemples des plugins importants
+5 - Utilisation du Elementor (nulled pour chercher les plugins et les thèmes gratuits)
+6 - Utilisation du woocommerce
+
+
+

@@ -12,6 +12,11 @@ Livrables
  2 - Rapport de Stage
  3 - Soutenance
 
+
+
+
+
+
 Rapport de stage
 
 minimum 30 pages
@@ -41,7 +46,7 @@ entete et pied de page (rappel de la page de garde)
 	Sommaire --> automatique avec numéros de pages
 	Introduction (1 à 2 pages)
 		Pourquoi le stage
-		Ou est ce que j'ai effectuée mon stage
+		Ou est ce qu'on m'a demandé dans le stage
 		Qu'est ce que j'ai fait dans mon stage
 
 	Chapitre1 (présentation de l'entreprise et le service du stage)
@@ -57,8 +62,8 @@ entete et pied de page (rappel de la page de garde)
 	Chapitre 4 (Developpement)
 		Chapitre 4 - 1 (outils)
 		Chapitre 4 - 2 (Explications techniques)
-	Chapitre 5 - Manuel d'utilisateur (comme contenu intéget ou comme  petit livret A5 séparé)
-	Chapitre 6 - Manuel d'installation et d'administration (comme contenu intéget ou comme  petit livret A5 séparé)
+	Chapitre 5 - Manuel d'utilisateur (comme contenu intégré ou comme  petit livret A5 séparé)
+	Chapitre 6 - Manuel d'installation et d'administration (comme contenu intégré ou comme  petit livret A5 séparé)
 
 	..... (ce document représente des suggestion que vous n'êtes pas obligé de respecter à 100%, ajouter d'autres chapitres ou enlever des chapitres a votre guise)
 
