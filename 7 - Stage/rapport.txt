@@ -1,0 +1,97 @@
+Site web
+Wordpress
+
+Application web   -> laravel
+Application mobile -> React native
+Application desktop -> PYTHON - JAVA - C#
+
+
+
+Livrables
+ 1 - Application avec code source
+ 2 - Rapport de Stage
+ 3 - Soutenance
+
+Rapport de stage
+
+minimum 30 pages
+minimum 28 lignes par page
+maximum 34 lignes par page
+Tailles des paragraphs max est 13pt
+interligne 1.5
+interpraphes de 2
+meme police et meme taille pour tous les paragraphes du rapport
+les paragraphes justifiés
+la numérotation des pages en coordination avec le sommaire
+entete et pied de page (rappel de la page de garde)
+
+
+
+
+	Page de garde
+		Logos (institut et lieu de stage)
+		Nature du document - Rapport de stage
+		Titre du rapport - Développement d'une application web pour la gestion des employés
+		Réalisé par 
+		Encadré par
+		Année de formation 2023-2024
+
+	Dedicace
+	Remerciements
+	Sommaire --> automatique avec numéros de pages
+	Introduction (1 à 2 pages)
+		Pourquoi le stage
+		Ou est ce que j'ai effectuée mon stage
+		Qu'est ce que j'ai fait dans mon stage
+
+	Chapitre1 (présentation de l'entreprise et le service du stage)
+	Chapitre2 (Besoin à développer - Cahier des charges)
+	Chapitre3 (Analyse) (
+			-Maquette (enchainement des écrans avec figma ou manuelle)
+			-Product backlog (epics et user stories)
+			-Digramme de classe
+			-Diagramme de sequences
+			-Uses cases
+			-MCD/MLD
+			-GANTT/PERT
+	Chapitre 4 (Developpement)
+		Chapitre 4 - 1 (outils)
+		Chapitre 4 - 2 (Explications techniques)
+	Chapitre 5 - Manuel d'utilisateur (comme contenu intéget ou comme  petit livret A5 séparé)
+	Chapitre 6 - Manuel d'installation et d'administration (comme contenu intéget ou comme  petit livret A5 séparé)
+
+	..... (ce document représente des suggestion que vous n'êtes pas obligé de respecter à 100%, ajouter d'autres chapitres ou enlever des chapitres a votre guise)
+
+	Conclusion (2 paragraphes ~une page)
+		Qu'est ce que j'ai appris dans mon stage
+		Quels sont les problèmes que j'ai pu surmenter
+		Qu'est ce qui me reste a faire
+		...      mes propres sentiements
+
+	Bibliographie et références
+	Annexes
+	[Indexe]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
