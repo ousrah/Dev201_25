@@ -1,0 +1,19 @@
+video du cours
+https://youtu.be/oVi3pPaf8IY
+
+
+configuration .env
+
+MAIL_MAILER=smtp  #Sample Mail Transfer Protocol
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=ousrah@gmail.com
+MAIL_PASSWORD=xxxxxxxxxxxxxxxxxx  #c'est le mot de passe lié à l'application
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=ousrah@gmail.com
+MAIL_FROM_NAME="mailIsmo"
+
+
+Tutoriel
+
+https://mailtrap.io/blog/laravel-send-email-gmail/
