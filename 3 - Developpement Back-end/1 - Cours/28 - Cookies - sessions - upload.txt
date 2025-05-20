@@ -1,0 +1,20 @@
+Dans votre projet ajoutre un formulaire qui permet de saisir un nom et de l'enregistrer dans une cookie, le nom doit être affiché dans la page d'accueil lors des prochaines visites du site
+
+
+Dans votre projet ajoutre un formulaire qui permet de saisir un nom et de l'enregistrer dans une variable session, le nom doit être affiché dans la page d'accueil lors des prochaines visites du site
+
+Ajouter le champs avatar a votre model User
+Ajouter le champs avatar a votre fichier de migration des users
+Ajouter un formulaire qui permet de choisir une image et de l'uploader dans le dossier /storage/avatars
+votre avatar doit être afficher dans la page d'accueil lors des prochaines visites du site
+
+n'oubliez pas d'executer php artisan storage:link dans votre terminal
+
+
+
+exemples :
+
+dashboard.blade.php
+DashboardController.php
+web.php
+
